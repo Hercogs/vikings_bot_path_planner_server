@@ -10,7 +10,7 @@ package_name = 'path_planner_server'
 def find_key_set_val(data, search_key=None, set_value=None):
     for key, value in data.items():
         if isinstance(value, dict):
-            data[key] = find_set_key_dict(value, search_key, set_value)
+            data[key] = find_key_set_val(value, search_key, set_value)
         else:
             if key == search_key:
                 data[search_key] = set_value

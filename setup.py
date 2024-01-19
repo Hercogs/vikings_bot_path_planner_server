@@ -3,7 +3,7 @@ import os
 from glob import glob
 import yaml
 
-package_name = 'path_planner_server'
+package_name = 'vikings_bot_path_planner_server'
 
 # set correct behavior.xml path in *bt_navigator.yaml files
 # because $(find-pkg-share) doesn't work in yaml file for some reason..

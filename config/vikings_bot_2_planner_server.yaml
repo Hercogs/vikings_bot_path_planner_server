@@ -65,12 +65,11 @@ vikings_bot_2/global_costmap:
         mark_threshold: 0
         observation_sources: scan
         scan:
-          topic: /vikings_bot_2/lidar_scan
-          #sensor_frame: vikings_bot_2/lidar_link
+          topic: /vikings_bot_1/lidar_scan/filtered/points #/vikings_bot_1/lidar_scan
           max_obstacle_height: 2.0
           clearing: True
           marking: True
-          data_type: "LaserScan"
+          data_type: "PointCloud2" #"LaserScan"
           raytrace_max_range: 6.0
           raytrace_min_range: 0.0
           obstacle_max_range: 5.5

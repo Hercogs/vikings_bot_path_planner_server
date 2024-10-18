@@ -2,9 +2,9 @@ vikings_bot_1/controller_server:
   ros__parameters:
     #use_sim_time: True
     controller_frequency: 10.0
-    min_x_velocity_threshold: 0.001
-    min_y_velocity_threshold: 0.5
-    min_theta_velocity_threshold: 0.001
+    min_x_velocity_threshold: 0.1
+    min_y_velocity_threshold: 0.1
+    min_theta_velocity_threshold: 0.1
     failure_tolerance: 0.3
     progress_checker_plugin: "progress_checker"
     goal_checker_plugins: ["general_goal_checker"] 
@@ -14,14 +14,14 @@ vikings_bot_1/controller_server:
     # Progress checker parameters
     progress_checker:
       plugin: "nav2_controller::SimpleProgressChecker"
-      required_movement_radius: 0.5
-      movement_time_allowance: 10.0
+      required_movement_radius: 0.25
+      movement_time_allowance: 15.0
     # Goal checker parameters
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.15
-      yaw_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.10
     # DWB parameters
     FollowPath:
       plugin: "nav2_rotation_shim_controller::RotationShimController"
@@ -58,7 +58,7 @@ vikings_bot_1/controller_server:
       xy_goal_tolerance: 0.15
       trans_stopped_velocity: 0.25
       short_circuit_trajectory_evaluation: True
-      stateful: True
+      # stateful: True
       #lookahead_dist: 0.0
       #critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
       critics: ["RotateToGoal", "Oscillation", "ObstacleFootprint", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
